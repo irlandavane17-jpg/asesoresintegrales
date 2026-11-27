@@ -71,71 +71,77 @@ const dialogServices = document.querySelector(".dialog-services");
 const dialogIncluded = document.querySelector(".dialog-included");
 const serviceInformation = {
   "Servicios contables": {
-    description: "Ofrecemos soluciones contables para mantener organizada y actualizada la información financiera de tu negocio, facilitar el control administrativo y cumplir tus obligaciones.",
+    description: "",
     services: [
-      "Asesoría contable",
-      "Facturación electrónica",
+      "Asesoría Fiscal y financiera",
+      "Gobierno Corporativo",
+      "Facturación Electrónica",
+      "IMSS",
+      "Capacitación de manejo de software",
       "Cálculo de impuestos",
-      "Elaboración y análisis de estados financieros",
-      "Administración de nóminas",
-      "Capacitación en el manejo de software",
-      "Planeación financiera",
-      "Asesoría en proyectos de inversión"
+      "Planeación Fiscal",
+      "Planeación Financiera",
+      "Asesoría de proyectos de inversión"
     ]
   },
   "Asesoría fiscal": {
-    description: "Brindamos orientación y acompañamiento fiscal para ayudar a personas físicas y morales a cumplir adecuadamente con sus obligaciones tributarias y mejorar la planeación de sus recursos.",
+    description: "",
     services: [
       "Planeación fiscal",
-      "Cálculo y asesoría de impuestos",
-      "Auditorías fiscales",
-      "Auditorías de IMSS",
-      "Auditorías de control interno",
+      "Administración de nóminas",
       "Constitución y disolución de empresas",
-      "Asesoría en materia fiscal"
+      "Auditorías fiscales, de IMSS y de control interno"
     ]
   },
   "Asesoría corporativa": {
-    description: "Apoyamos a las empresas en su organización, administración y toma de decisiones, con herramientas e ideas para aprovechar mejor sus recursos y fortalecer su funcionamiento.",
+    description: "",
     services: [
-      "Gobierno corporativo",
+      "Facilitar ideas y actividades para mejor aprovechamiento de recursos",
       "Asesoría patrimonial",
-      "Apoyo en la toma oportuna de decisiones",
+      "Apoyar a los clientes en la toma oportuna de decisiones",
       "Capacitaciones empresariales",
-      "Orientación para el mejor aprovechamiento de recursos",
-      "Enseñanza de mejores prácticas para la administración de recursos"
+      "Enseñanza de una mejor administración de recursos"
     ]
   },
   "Asesoría financiera": {
-    description: "Ayudamos a nuestros clientes a comprender, organizar y administrar sus recursos financieros con herramientas de planeación y análisis que contribuyen a una mejor toma de decisiones.",
+    description: "",
     services: [
-      "Elaboración y análisis de estados financieros",
-      "Gestión de recursos ante instituciones públicas y privadas",
-      "Elaboración de planes de negocios",
-      "Planeación financiera",
-      "Asesoría en proyectos de inversión",
-      "Orientación para una mejor administración de los recursos financieros"
+      "Estados financieros",
+      "Gestión de recursos ante instituciones privadas y públicas",
+      "Planes de negocios",
+      "Enseñanza de una mejor administración de recursos financieros"
     ]
   },
   "Servicios IMSS": {
-    description: "Proporcionamos asesoría y servicios relacionados con las obligaciones patronales y los procedimientos ante el Instituto Mexicano del Seguro Social.",
+    description: "",
     services: [
       "Alta de empresas",
-      "Declaraciones de riesgos de trabajo",
-      "Planes de pensiones",
-      "Servicio Integral de Registro de Obras de Construcción (SIROC)",
-      "Asesoría relacionada con IMSS"
+      "Declaraciones de Riesgos de trabajo",
+      "Plan de pensiones",
+      "Servicio Integral de Registro de Obras de Construcción (SIROC)"
     ]
   },
   "Asesoría en materia de prevención de lavado de dinero": {
     description: "Ofrecemos asesoría en materia de prevención de lavado de dinero, orientada al cumplimiento de las disposiciones aplicables a las actividades y operaciones de nuestros clientes.",
     services: []
+  },
+  "Pensiones": {
+    description: "Estimación clara de tu pensión según semanas cotizadas, salario base y régimen aplicable para planear tu retiro.",
+    services: [
+      "Cálculo y proyección de pensión",
+      "Análisis de Ley 73",
+      "Análisis de Ley 97",
+      "Revisión de semanas cotizadas",
+      "Estimación de salario base",
+      "Planeación de retiro"
+    ]
   }
 };
 
 function openInformation(title, description) {
   dialogTitle.textContent = title;
   dialogCopy.textContent = description;
+  dialogCopy.hidden = !description;
   infoDialog.showModal();
   document.body.classList.add("dialog-open");
 }

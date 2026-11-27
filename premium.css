@@ -135,7 +135,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 }
 .services-section::before {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   top: -230px;
   right: -170px;
   width: min(58vw, 760px);
@@ -144,6 +144,18 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   border-radius: 50%;
   box-shadow: 0 0 0 42px rgba(18,63,70,.018), 0 0 0 84px rgba(18,63,70,.014);
   content: "";
+  pointer-events: none;
+}
+.services-section::after {
+  position: absolute;
+  z-index: -1;
+  inset: -12px;
+  background:
+    linear-gradient(rgba(245, 243, 238, .72), rgba(245, 243, 238, .72)),
+    url("fotofondo.jpg") center / cover no-repeat;
+  content: "";
+  filter: blur(5px);
+  transform: scale(1.02);
   pointer-events: none;
 }
 .services-section .section-heading {
@@ -244,6 +256,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   font-size: 12px;
   line-height: 1.8;
 }
+.services-section .pension-card .service-icon { margin-bottom: 18px; }
+.services-section .pension-card p { margin-bottom: 12px; font-size: 11px; line-height: 1.55; }
+.services-section .pension-card { align-self: start; height: 300px; }
 .services-section .card-link {
   display: inline-flex;
   align-items: center;
@@ -260,23 +275,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .services-section .card-link:hover { gap: 12px; color: var(--services-terra); border-color: var(--services-terra); }
 .services-section .card-link:focus-visible { outline: 1px solid var(--services-terra); outline-offset: 4px; }
 .services-section .specialized-service {
+  grid-column: 2 / -1;
   grid-template-columns: .95fr 1.05fr;
-  min-height: 340px;
-  margin-top: 24px;
+  height: 300px;
+  min-height: 300px;
+  margin-top: 0;
   overflow: hidden;
   border: 0;
   border-radius: 2px;
   background: var(--services-deep);
   box-shadow: 0 18px 44px rgba(11,52,59,.12);
 }
-.services-section .specialized-image { min-height: 340px; background: var(--services-sage); }
-.services-section .specialized-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82); }
+.services-section .specialized-image { min-height: 300px; background: var(--services-sage); }
+.services-section .specialized-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; filter: saturate(.82); }
 .services-section .specialized-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(32px, 5vw, 64px);
+  padding: 22px clamp(20px, 3vw, 36px);
 }
 .services-section .specialized-copy .eyebrow { color: rgba(255,255,255,.72); }
 .services-section .specialized-copy h3 { color: white; font: 600 clamp(30px, 3.3vw, 42px)/1.08 var(--serif); letter-spacing: -.01em; }
@@ -437,6 +454,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .service-card.scroll-reveal:nth-child(3n) { transition-delay: .12s; }
 
 @media (max-width: 1060px) {
+  .services-section .specialized-service { grid-column: 1 / -1; height: auto; }
+  .services-section .pension-card { height: 275px; }
   html { scroll-padding-top: 84px; }
   .nav-wrap { min-height: 70px; }
   .menu-toggle { display: block; grid-column: 2; justify-self: end; }
@@ -509,6 +528,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .footer-main > p { margin: 0; }
 }
 @media (max-width: 470px) {
+  .services-section .specialized-service { grid-column: 1 / -1; }
+  .services-section .pension-card { height: auto; }
   .topbar-inner > span { max-width: 185px; }
   .brand-mark { width: 61px; }
   .nav-wrap .brand-copy { font-size: 10px; }
